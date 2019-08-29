@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <style>
+            .blok {
+                background-color: #5F9EA0;
+                max-width: 200px;
+                width: 100%;
+            }
+
+        .clock {
+            vertical-align: middle;
+            font-family: Orbitron;
+            font-size: 40px;
+            font-weight: normal;
+            color: #FFF;
+            padding: 15px 10px 10px 10px;
+           
+        }
+        </style>
+</head>
+
+<body onload="digitalClock()">
+    <div>
+        <table class="blok" align="center">
+            <tr>
+                <td class="clock" id="clockItem"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+<script>
+    var time;
+
+    function digitalClock() {
+        var currentDate = new Date();
+        var hour = currentDate.getHours();
+        var minute = currentDate.getHours();
+        var second = currentDate.getSeconds();
+
+        time = hour + ':'+((minute < 10) ? '0' : '') + minute + ':' + ((second < 10) ? '0' : '') + second;
+
+        document.getElementById('clockItem').innerHTML = time;
+
+        setInterval('digitalClock()',1000);
+    }
+
+</script>
